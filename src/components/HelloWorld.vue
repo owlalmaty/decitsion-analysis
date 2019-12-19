@@ -132,6 +132,8 @@ export default {
     getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
     },
+    
+    // generate random information based on declared limitations
     fillRandomInfo() {
       for(let i = 0; i < 3; i++) {
         this.regions.push({
@@ -179,6 +181,8 @@ export default {
       }
 
     },
+    
+    // distribution of agent's sources for starting bying computer machines
     fillAgents() {
       for(let i = 0; i < 10; i++) {
         this.agents.push({
@@ -192,7 +196,8 @@ export default {
       }
       (this.agents).sort((a, b) => (a.budget > b.budget) ? 1 : -1);
     },
-
+  
+    // starts bying machines with taking into account maximization revenue and minimization cost of each agent in stock, between each other, while reaching necessary point
     buyMachines() {
       for(let i = 0; i < (this.agents).length; i++) {
         let remain_budget = this.agents[i].budget;
